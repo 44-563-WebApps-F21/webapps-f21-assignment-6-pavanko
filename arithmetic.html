@@ -47,7 +47,6 @@
             num1 = document.getElementById("first_num").value
             num2 = document.getElementById("second_num").value
             out = document.getElementById("result")
-
             for (i = 0; i < num2; i++) {
                 let power = Math.pow(num1, i + 1)
                 result.push(power)
@@ -55,13 +54,10 @@
             out.innerHTML = "Powers of " + num1 + " are: " + result
         }
         function processRadio() {
-            debugger;
             firstnum = document.getElementById("first_num").value
             secondnum = document.getElementById("second_num").value
-
             firstnum = (Number)(firstnum);
             secondnum = (Number)(secondnum);
-
             if (document.getElementById("plus").checked) {
                 firstnum += secondnum;
 

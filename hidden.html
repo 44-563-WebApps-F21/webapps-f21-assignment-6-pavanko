@@ -30,18 +30,28 @@
     <script>
         let correct = 0, wrong = 0, usingImage = 1;
         function processPhrase() {
-
-            age = document.getElementById("form1_age").value
-            nick = document.getElementById("form1_nick").value
-            out = document.getElementById("result")
-            if (age == nick) {
-                alert("Access Allowed")
-                correct = correct + 1;
-            } else {
-                alert("Access denied")
-                wrong = wrong + 1;
+            if (counterWrong == 3) {
+                lockAccount();
             }
-            out.innerHTML = "Right Count is " + correct + " Wrong count is " + wrong
+            else {
+                secret = document.getElementById("secret").value
+                guess = document.getElementById("guess").value
+                out = document.getElementById("result")
+                if (secret == guess) {
+                    alert("Access Allowed")
+                    correct = correct + 1
+                    counterWrong = 0
+                } else {
+                    alert("Access denied")
+                    wrong = wrong + 1
+                    counterWrong++
+                }
+                out.innerHTML = "Number of Right Count is " + correct + ", Number of Wrong Count is " + wrong + "."
+            }
+        }
+     
+        function lockAccount() {
+            alert("account locked");
         }
         function newImage() {
             switch (usingImage) {
