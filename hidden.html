@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>MY HIDDEN</title>
+</head>
+
+<body>
+
+    <h2>Hidden Things by Pavan Kumar Koppuravuri</h2>
+
+    <form>
+        <label for="form1_age">Enter the secret word</label>
+        <input type="password" id="form1_age" name="form1_age" value="secret"> <br>
+
+        <label for="form1_nick">Enter a guess</label>
+        <input type="text" id="form1_nick" name="form1_nick" autofocus> <br>
+
+        <input type="button" onclick="processPhrase()" value="Check the guess">
+    </form>
+
+
+    <p id="result">"Values will be display here!"</p>
+
+    <div class="container">
+        <img id="img" src="KANGAROO.jpg" alt="KANGAROO" width="200" height="200" onclick="newImage()">
+    </div>
+
+
+    <script>
+        let correct = 0, wrong = 0, usingImage = 1;
+        function processPhrase() {
+
+            age = document.getElementById("form1_age").value
+            nick = document.getElementById("form1_nick").value
+            out = document.getElementById("result")
+            if (age == nick) {
+                alert("Access Allowed")
+                correct = correct + 1;
+            } else {
+                alert("Access denied")
+                wrong = wrong + 1;
+            }
+            out.innerHTML = "Right Count is " + correct + " Wrong count is " + wrong
+        }
+        function newImage() {
+            switch (usingImage) {
+                case 1:
+                    document.getElementById("img").src = "KANGAROO.jpg"
+                    usingImage = 2
+                    break
+                case 2:
+                    document.getElementById("img").src = "OSTRICH.jpg"
+                    usingImage = 3
+                    break
+                case 3:
+                    document.getElementById("img").src = "PENGUIN.jpg"
+                    usingImage = 1
+                    break
+            }
+        }
+    </script>
+
+</body>
+
+</html>
